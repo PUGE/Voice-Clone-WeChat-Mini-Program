@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="container">
+      <button bindtap="startRecording">开始录音</button>
+      <button bindtap="stopRecording">停止录音</button>
+      <button bindtap="playRecording" wx:if="{{audioPath}}">播放录音</button>
+    </view>
+  </view>
+</scroll-view>
