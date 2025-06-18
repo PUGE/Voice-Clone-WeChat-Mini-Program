@@ -1,10 +1,22 @@
 <!--index.wxml-->
 <scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="container">
-      <button bindtap="startRecording">开始录音</button>
-      <button bindtap="stopRecording">停止录音</button>
-      <button bindtap="playRecording" wx:if="{{audioPath}}">播放录音</button>
+  <view class="table">
+    <view class="table-row header">
+      <view class="table-cell">上传时间</view>
+      <view class="table-cell">操作</view>
+    </view>
+
+    <view class="table-row" wx:for="{{tableData}}" wx:key="index">
+      <view class="table-cell">{{item.uploadTime}}</view>
+      <view class="table-cell"><span bindtap="playMusic" data-url="{{item.filePath}}">播放</span></view>
+    </view>
+  </view>
+  <button bindtap="startRecording">开始录音</button>
+  <button bindtap="playRecording" wx:if="{{audioPath}}">播放录音</button>
+  <view wx:if="{{showModal}}" class="modal">
+    <view class="modal-content">
+      <text>倒计时：{{countdown}} 秒</text>
+      <button bindtap="stopCountdown">停止</button>
     </view>
   </view>
 </scroll-view>
